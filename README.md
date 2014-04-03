@@ -3,7 +3,7 @@ Frontend test
 
 1. Clone repo
 2. Change into repo directory
-3. Install dependancies:
+3. Install dependencies:
 
 ```
 	npm install
