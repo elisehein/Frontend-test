@@ -1,5 +1,8 @@
 <% include includes/header.html %>
 
+<p>&pound;<%= donation.amount / 100 %></p>
+<p><%= donation.message %></p>
+
 <ul>
 <% comments.forEach(function (comment) { %>
 	<li>

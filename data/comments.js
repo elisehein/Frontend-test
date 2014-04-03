@@ -65,7 +65,7 @@ exports.byId = function (id) {
 	var record = null;
 
 	data.forEach(function (r) {
-		if (r === id) record = r;
+		if (r.id === id) record = r;
 	});
 
 	return record;

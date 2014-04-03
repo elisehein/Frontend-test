@@ -1,10 +1,12 @@
 var moment = require('moment');
 var comments = require('../data/comments');
+var donations = require('../data/donations');
 
 module.exports = function(app) {
 	app.get('/', function(req, res) {
 		res.render('index', {
 			moment: moment,
+			donation: donations.byId(100),
 			comments: comments.find()
 		});
 	});
