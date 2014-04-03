@@ -1,0 +1,12 @@
+<% include includes/header.html %>
+
+<ul>
+<% comments.forEach(function (comment) { %>
+	<li>
+		<p><%= comment.text %></p>
+		<p><%= moment(comment.date).format('Do MMM YYYY') %>
+	</li>
+<% }); %>
+</ul>
+
+<% include includes/footer.html %>

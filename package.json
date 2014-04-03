@@ -1,0 +1,25 @@
+{
+  "name": "Frontend-test",
+  "version": "0.0.1",
+  "description": "A test for frontend developers",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/believe-in/Frontend-test.git"
+  },
+  "author": "Believe.in",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/believe-in/Frontend-test/issues"
+  },
+  "homepage": "https://github.com/believe-in/Frontend-test",
+  "dependencies": {
+    "express": "~3.5.1",
+    "ejs": "~1.0.0",
+    "moment": "~2.5.1"
+  }
+}
