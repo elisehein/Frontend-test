@@ -55,10 +55,10 @@ var data = [
 
 
 exports.find = function (offset, limit) {
-	limit = limit || 2;
+	limit = limit || data.length;
 	offset = offset || 0;
 
-	return data.slice(offset, offset + limit);
+	return data.slice(offset, limit);
 };
 
 exports.byId = function (id) {
