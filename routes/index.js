@@ -20,7 +20,11 @@ module.exports = function(app) {
 	});
 
 	app.post('/api/donations/:id/comments', function(req, res) {
-		var comment = comments.save(req.body);
-		res.json(comment);
+		if (!req.body.text) {
+			return res.send(400);
+		} else {
+			var comment = comments.save(req.body);
+			return res.json(comment);
+		}
 	});
 };
