@@ -15,7 +15,7 @@ Frontend test
 	npm start
 ```
 
-This will start the node expressjs server on http://localhost:3000.
+This will start the node expressjs server on [http://localhost:3000](http://localhost:3000).
 
 All templates live in views directory.
 Static assets are in public directory.
