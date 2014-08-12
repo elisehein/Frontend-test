@@ -1,0 +1,12 @@
+body {
+  font: normal 11px/1.5em Arial, Helvetica, sans-serif;
+  padding: 30px 20px;
+  color: #333;
+  background-color: #eeeeee;
+}
+
+main {
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+}

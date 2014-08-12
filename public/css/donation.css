@@ -1,0 +1,42 @@
+.donation {
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+/* Create a mock triangle using borders */
+.donation:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 30px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+  border-right-color: #fff;
+}
+
+.donation__donor {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #693;
+}
+
+.donation__message {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.donation__repr {
+  margin-bottom: 20px;
+}
+
+.donation footer {
+  color: #999;
+}

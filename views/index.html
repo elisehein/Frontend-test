@@ -1,14 +1,55 @@
 <% include includes/header.html %>
 
+<main>
+  <header>
+    <h1>Anna's sponsors</h1>
+    <p>1 person has donated</p>
+  </header>
+
+  <article class="donation">
+
+    <span class="donation__donor">Matthias Metternich</span>
+
+    <p class="donation__message">
+      <%= donation.message %>
+    </p>
+
+    <div class="donation__repr">
+      <span class="donation__amount">
+        £<%= donation.amount %> sponsorship
+      </span>
+    </div>
+
+    <section class="donation__comments">
+      <ol>
+      <% comments.forEach(function (comment) { %>
+        <li class="donation__comment">
+          <p><%= comment.text %></p>
+          <p><%= moment(comment.date).format('Do MMM YYYY') %>
+        </li>
+      <% }); %>
+      </ol>
+    </section>
+
+    <footer>
+      <time datetime="2014-08-01T13:00:00Z"></time>
+      <span>2</span>
+      <span>Like</span>
+      <span>Comment</span>
+      <span>Share</span>
+    </footer>
+  </article>
+</main>
+
 <p>&pound;<%= donation.amount / 100 %></p>
 <p><%= donation.message %></p>
 
-<ul>
+<ul class="center-block">
 <% comments.forEach(function (comment) { %>
-	<li>
-		<p><%= comment.text %></p>
-		<p><%= moment(comment.date).format('Do MMM YYYY') %>
-	</li>
+  <li>
+    <p><%= comment.text %></p>
+    <p><%= moment(comment.date).format('Do MMM YYYY') %>
+  </li>
 <% }); %>
 </ul>
 
