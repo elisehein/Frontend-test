@@ -14,43 +14,41 @@
       <%= donation.message %>
     </p>
 
-    <div class="donation__repr">
-      <span class="donation__amount">
+    <div class="donation__sponsorship">
+      <div class="sponsorship__amount">
         £<%= donation.amount %> sponsorship
-      </span>
+      </div>
+
+      <div class="sponsorship__receiver">
+        <img src="/images/logo.jpg" title="Oxfam">
+      </div>
     </div>
 
     <section class="donation__comments">
+      <div class="comment__block">
+        Show all 7 comments
+      </div>
       <ol>
       <% comments.forEach(function (comment) { %>
-        <li class="donation__comment">
+        <li class="comment__block">
           <p><%= comment.text %></p>
-          <p><%= moment(comment.date).format('Do MMM YYYY') %>
+          <p><%= moment(comment.date).format("Do MMM YYYY") %>
         </li>
       <% }); %>
       </ol>
+      <div class="comment__block">
+        <input type="text" placeholder="Write your comment...">
+      </div>
     </section>
 
     <footer>
-      <time datetime="2014-08-01T13:00:00Z"></time>
-      <span>2</span>
-      <span>Like</span>
-      <span>Comment</span>
-      <span>Share</span>
+      <span class="footer__detail" datetime="2014-08-01T13:00:00Z">Aug 1st</span>
+      <span class="footer__detail">2</span>
+      <span class="footer__detail">Like</span>
+      <span class="footer__detail">Comment</span>
+      <span class="footer__detail">Share</span>
     </footer>
   </article>
 </main>
-
-<p>&pound;<%= donation.amount / 100 %></p>
-<p><%= donation.message %></p>
-
-<ul class="center-block">
-<% comments.forEach(function (comment) { %>
-  <li>
-    <p><%= comment.text %></p>
-    <p><%= moment(comment.date).format('Do MMM YYYY') %>
-  </li>
-<% }); %>
-</ul>
 
 <% include includes/footer.html %>

@@ -33,10 +33,15 @@
   line-height: 28px;
 }
 
-.donation__repr {
-  margin-bottom: 20px;
-}
-
 .donation footer {
   color: #999;
 }
+
+.footer__detail:before {
+  content: "· ";
+}
+
+.footer__detail:first-child:before {
+  content: ""
+}
+

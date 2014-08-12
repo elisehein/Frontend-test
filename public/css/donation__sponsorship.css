@@ -1,6 +1,12 @@
-.donation__amount {
+.donation__sponsorship {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.sponsorship__amount {
   position: relative;
   display: inline-block;
+  float: left;
   padding-left: 13px;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -12,8 +18,8 @@
 
 /* Use transforms to get a triangle with rounded corners if available,
  * otherwise use a regular triangle */
-.csstransforms .donation__amount:before,
-.csstransforms .donation__amount:after {
+.csstransforms .sponsorship__amount:before,
+.csstransforms .sponsorship__amount:after {
   content: "";
   position: absolute;
   right: -5px;
@@ -23,21 +29,21 @@
   z-index: -1;
 }
 
-.csstransforms .donation__amount:after {
+.csstransforms .sponsorship__amount:after {
   top: 0;
   border-top-right-radius: 6px;
   -webkit-transform-origin: 100% 0;
   -webkit-transform: skewX(45deg);
 }
 
-.csstransforms .donation__amount:before {
+.csstransforms .sponsorship__amount:before {
   bottom: 0;
   border-bottom-right-radius: 6px;
   -webkit-transform-origin: 0 100%;
   -webkit-transform: skewX(-45deg);
 }
 
-.no-csstransforms .donation__amount:after {
+.no-csstransforms .sponsorship__amount:after {
   content: "";
   position: absolute;
   top: 0;
@@ -46,4 +52,22 @@
   height: 0;
   border: 20px solid transparent;
   border-left-color: #eee;
+}
+
+.sponsorship__receiver {
+  position: relative;
+  float: right;
+  width: 40px;
+  height: 40px;
+}
+
+.sponsorship__receiver:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 0 0 6px 1px rgba(0, 0, 0, 0.25);
+  pointer-events: none; /* To allow the title tag to appear */
 }
