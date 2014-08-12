@@ -26,19 +26,21 @@
 
     <section class="donation__comments">
       <div class="comment__block">
-        Show all 7 comments
+        <b>Show all 7 comments</b>
       </div>
+
       <ol>
       <% comments.forEach(function (comment) { %>
         <li class="comment__block">
           <p><%= comment.text %></p>
-          <p><%= moment(comment.date).format("Do MMM YYYY") %>
+          <time><%= moment(comment.date).format("Do MMM YYYY") %></time>
         </li>
       <% }); %>
       </ol>
-      <div class="comment__block">
+
+      <form name="postComment" class="comment__block">
         <input type="text" placeholder="Write your comment...">
-      </div>
+      </form>
     </section>
 
     <footer>
