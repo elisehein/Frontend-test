@@ -1,0 +1,46 @@
+<article class="donation">
+
+  <span class="donation__donor">Matthias Metternich</span>
+
+  <p>
+    <%= donation.message %>
+  </p>
+
+  <div class="donation__sponsorship">
+    <div class="sponsorship__amount">
+      £<%= donation.amount %> <del>sponsorship</del>
+    </div>
+
+    <div class="sponsorship__receiver">
+      <img src="/images/logo.jpg" title="Oxfam">
+    </div>
+  </div>
+
+  <section class="donation__comments">
+    <div class="comment__block">
+      <b>Show all 7 comments</b>
+    </div>
+
+    <ol>
+      <% donation.comments.forEach(function (comment) { %>
+      <li class="comment__block">
+        <p><%= comment.text %></p>
+        <time><%= moment(comment.date).format("Do MMM YYYY") %></time>
+      </li>
+      <% }); %>
+    </ol>
+
+
+    <form name="postComment" class="comment__block">
+      <input type="text" placeholder="Write your comment...">
+    </form>
+  </section>
+
+  <footer>
+    <span class="footer__detail" datetime="2014-08-01T13:00:00Z">Aug 1st</span>
+    <span class="footer__detail">2</span>
+    <span class="footer__detail">Like</span>
+    <span class="footer__detail">Comment</span>
+    <span class="footer__detail">Share</span>
+  </footer>
+</article>
