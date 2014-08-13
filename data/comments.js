@@ -53,6 +53,10 @@ var data = [
 	}
 ];
 
+// Add option to get total number of comments
+exports.total = function () {
+  return data.length;
+}
 
 exports.find = function (offset, limit) {
 	limit = limit || data.length;

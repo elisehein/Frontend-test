@@ -1,10 +1,14 @@
 .donation {
   position: relative;
   box-sizing: border-box;
-  margin-bottom: 20px;
+  margin: 40px 0 20px 0;
   padding: 20px;
   border-radius: 10px;
   background-color: #fff;
+}
+
+.donation:first-child {
+  margin: 0;
 }
 
 /* Create a mock triangle using borders */
@@ -27,7 +31,7 @@
   color: #693;
 }
 
-.donation__message {
+.donation > p {
   margin-bottom: 20px;
   font-size: 24px;
   line-height: 1.166em;
@@ -37,11 +41,11 @@
   color: #999;
 }
 
-.footer__detail:before {
+.donation__footer > *:before {
   content: "· ";
 }
 
-.footer__detail:first-child:before {
+.donation__footer > *:first-child:before {
   content: ""
 }
 

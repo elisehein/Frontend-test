@@ -13,7 +13,10 @@ module.exports = function(app) {
     }
 
     context.donations[0].comments = comments.find(null, 2);
+    context.donations[0].total_comments = comments.total();
+
     context.donations[1].comments = [];
+    context.donations[1].total_comments = 0;
 
 		res.render('index', context);
 	});

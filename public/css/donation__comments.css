@@ -2,15 +2,20 @@
   margin-bottom: 15px;
 }
 
-.comment__block {
+.donation__comments time {
+  color: #999;
+}
+
+.comments__expand {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.comments__block {
   margin-bottom: 3px;
   padding: 10px 15px;
   border-radius: 5px;
   background-color: #eee;
-}
-
-.comment__block time {
-  color: #999;
 }
 
 form.comment__block {

@@ -1,6 +1,8 @@
 <article class="donation">
 
-  <span class="donation__donor">Matthias Metternich</span>
+  <span class="donation__donor">
+    <%= donation.donor %>
+  </span>
 
   <p>
     <%= donation.message %>
@@ -17,30 +19,37 @@
   </div>
 
   <section class="donation__comments">
-    <div class="comment__block">
-      <b>Show all 7 comments</b>
+    <% if (donation.total_comments > donation.comments.length) { %>
+    <div class="comments__block comments__expand" onclick="expand_comments()">
+      Show all <%= donation.total_comments %> comments
     </div>
+    <% } %>
 
     <ol>
       <% donation.comments.forEach(function (comment) { %>
-      <li class="comment__block">
+      <li class="comments__block">
         <p><%= comment.text %></p>
-        <time><%= moment(comment.date).format("Do MMM YYYY") %></time>
+        <time datetime="<%= comment.created %>">
+          <%= moment.duration(moment() - moment(comment.created)).humanize() %>
+        </time>
       </li>
       <% }); %>
     </ol>
 
-
-    <form name="postComment" class="comment__block">
+    <% if (donation.comments.length) { %>
+    <form name="postComment" class="comments__block">
       <input type="text" placeholder="Write your comment...">
     </form>
+    <% } %>
   </section>
 
-  <footer>
-    <span class="footer__detail" datetime="2014-08-01T13:00:00Z">Aug 1st</span>
-    <span class="footer__detail">2</span>
-    <span class="footer__detail">Like</span>
-    <span class="footer__detail">Comment</span>
-    <span class="footer__detail">Share</span>
+  <footer class="donation__footer">
+    <time datetime="<%= donation.created %>">
+      <%= moment.duration(moment() - moment(donation.created)).humanize() %>
+    </time>
+    <span>2</span>
+    <span>Like</span>
+    <span>Comment</span>
+    <span>Share</span>
   </footer>
 </article>

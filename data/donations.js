@@ -2,12 +2,16 @@
 var data = [
 	{
 		id: 100,
+    donor: 'Matthias Metternich',
 		amount: 1000,
-		message: 'Vice Banksy art party sustainable, kitsch tofu try-hard narwhal single-origin coffee seitan Intelligentsia. Letterpress mlkshk Schlitz cardigan, 8-bit VHS shabby chic typewriter pickled distillery.'
+		message: 'Vice Banksy art party sustainable, kitsch tofu try-hard narwhal single-origin coffee seitan Intelligentsia. Letterpress mlkshk Schlitz cardigan, 8-bit VHS shabby chic typewriter pickled distillery.',
+    created: '2014-08-01'
 	}, {
     id: 101,
+    donor: 'Alistair Kilpatrick',
     amount: 100,
-    message: 'Looks like a great cause Anna, good luck with your fundraiser!'
+    message: 'Looks like a great cause Anna, good luck with your fundraiser!',
+    created: '2014-08-02'
   }
 ];
 
