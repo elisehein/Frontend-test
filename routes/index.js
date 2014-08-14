@@ -1,22 +1,13 @@
 var moment = require('moment');
-var comments = require('../data/comments');
 var donations = require('../data/donations');
 
 module.exports = function(app) {
 	app.get('/', function(req, res) {
 
-    // I am modifying this slightly to reflect more likely object structure
-
     var context = {
 			moment: moment,
 			donations: donations.find(),
     }
-
-    context.donations[0].comments = comments.find(null, 2);
-    context.donations[0].total_comments = comments.total();
-
-    context.donations[1].comments = [];
-    context.donations[1].total_comments = 0;
 
 		res.render('index', context);
 	});
