@@ -42,11 +42,20 @@
 }
 
 .donation__footer > *:before {
-  content: "· ";
+  content: " · ";
 }
 
 .donation__footer > *:first-child:before {
   content: ""
+}
+
+.donation__total-likes:after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 8px;
+  background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAICAgICAgICAgIDAgICAwQDAgIDBAUEBAQEBAUGBQUFBQUFBgYHBwgHBwYJCQoKCQkMDAwMDAwMDAwMDAwMDAz/2wBDAQMDAwUEBQkGBgkNCwkLDQ8ODg4ODw8MDAwMDA8PDAwMDAwMDwwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAAIAAkDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgj/xAAiEAABAwMDBQAAAAAAAAAAAAACAQMFBAcRAAYhCBhYk9P/xAAWAQEBAQAAAAAAAAAAAAAAAAAHBgn/xAApEQABAQUFCQEAAAAAAAAAAAABAgMEBRIhAAYRUdEHFhcjMVRVYpGh/9oADAMBAAIRAxEAPwAVvLp3vlDXZqrPHHSc9MbokSro+vA3VoZZsTLEo46SqGAR1VcI1y2pEhcrySvEJe0PJd8CSo4jJXtrlbQuD7QbvvMGTFwtDNmyRKpNJ2RwHJA61lEgTRYAIoKXP2N348jqv3SH01S7tPncH9sI8bLu+IT8Z6W//9k=);
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 300px) {
