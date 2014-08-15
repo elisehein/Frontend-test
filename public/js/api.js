@@ -1,6 +1,6 @@
 "use strict";
 
-define(function () {
+define(["zepto"], function ($) {
   // In a more realistic case, this object would contain
   // donations, causes etc.
   return {
@@ -10,9 +10,9 @@ define(function () {
     }
   }
 
-  function get_comments () {
-    console.log("Getting comments");
-
+  function get_comments (donation_id, options) {
+    var endpoint = "api/donations/" + donation_id + "/comments";
+    return $.get(endpoint, options)
   }
 
   function add_comment () {

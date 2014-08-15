@@ -62,7 +62,7 @@ exports.find = function (offset, limit) {
 	limit = limit || data.length;
 	offset = offset || 0;
 
-	return data.slice(offset, limit);
+  return data.slice(offset, limit);
 };
 
 exports.byId = function (id) {
