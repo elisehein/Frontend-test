@@ -18,7 +18,18 @@
     </div>
   </div>
 
-  <section class="donation__comments"></section>
+  <section class="donation__comments">
+    <div class="comments__block comments__show-all hidden">
+      Show all <span></span> comments
+    </div>
+
+    <ol></ol>
+
+    <form name="addComment" class="comments__block hidden">
+      <input name="newComment" type="text" placeholder="Write your comment...">
+      <div class="error hidden">Comment cannot be empty</div>
+    </form>
+  </section>
 
   <footer class="donation__footer">
     <time datetime="<%= donation.created %>">
@@ -31,8 +42,8 @@
     </span><!--
  --><% } %><!--
 
- --><span>Like</span><!--
- --><span>Comment</span><!--
- --><span>Share</span>
+ --><span class="donation__action -like">Like</span><!--
+ --><span class="donation__action -comment">Comment</span><!--
+ --><span class="donation__action -share">Share</span>
   </footer>
 </article>

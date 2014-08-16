@@ -26,6 +26,10 @@ form.comment__block {
   padding: 10px;
 }
 
+form .error {
+  margin-top: 5px;
+}
+
 input {
   box-sizing: border-box;
   width: 100%;

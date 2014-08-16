@@ -36,15 +36,23 @@
 .csstransforms .sponsorship__amount:after {
   top: 0;
   border-top-right-radius: 6px;
+  transform-origin: 100% 0;
+  transform: skewX(45deg);
   -webkit-transform-origin: 100% 0;
   -webkit-transform: skewX(45deg);
+  -ms-transform-origin: 100% 0;
+  -ms-transform: skewX(45deg);
 }
 
 .csstransforms .sponsorship__amount:before {
   bottom: 0;
   border-bottom-right-radius: 6px;
+  transform-origin: 0 100%;
+  transform: skewX(-45deg);
   -webkit-transform-origin: 0 100%;
   -webkit-transform: skewX(-45deg);
+  -ms-transform-origin: 0 100%;
+  -ms-transform: skewX(-45deg);
 }
 
 .no-csstransforms .sponsorship__amount:after {

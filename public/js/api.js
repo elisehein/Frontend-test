@@ -1,6 +1,8 @@
 "use strict";
 
 define(["zepto"], function ($) {
+  var comments_endpoint = "api/donations/:id/comments";
+
   // In a more realistic case, this object would contain
   // donations, causes etc.
   return {
@@ -11,12 +13,11 @@ define(["zepto"], function ($) {
   }
 
   function get_comments (donation_id, options) {
-    var endpoint = "api/donations/" + donation_id + "/comments";
-    return $.get(endpoint, options)
+    return $.get(comments_endpoint.replace(":id", donation_id), options)
   }
 
-  function add_comment () {
-   console.log("Adding comment");
+  function add_comment (donation_id, options) {
+   return $.post(comments_endpoint.replace(":id", donation_id), options);
   }
 });
 

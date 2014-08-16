@@ -49,6 +49,14 @@
   content: ""
 }
 
+.donation__action {
+  cursor: not-allowed;
+}
+
+.donation__action:hover {
+  color: #333;
+}
+
 .donation__total-likes:after {
   content: "";
   display: inline-block;
