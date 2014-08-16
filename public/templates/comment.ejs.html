@@ -1,0 +1,9 @@
+<li class="comments__block">
+  <p>
+    <span class="comment__author">Anna Joicey</span>
+    <%= comment.text %>
+  </p>
+  <time datetime="<%= comment.created %>">
+    <%= moment.duration(moment() - moment(comment.created)).humanize() %>
+  </time>
+</li>

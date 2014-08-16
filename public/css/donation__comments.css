@@ -6,8 +6,12 @@
   color: #999;
 }
 
-.comments__expand {
+.comments__show-all,
+.comment__author {
   font-weight: bold;
+}
+
+.comments__show-all {
   cursor: pointer;
 }
 

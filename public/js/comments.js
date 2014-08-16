@@ -1,28 +1,58 @@
 define(["ejs", "zepto", "moment", "api"], function (ejs, $, moment, api) {
-  $(".donation").each(init_comments);
 
-  // Start by showing 2 comments for each donation
-  function init_comments (index, donation) {
-    get_comments(donation, 0, 2);
-  }
+  var section_template = new ejs({ url: "../templates/comments.ejs.html" }),
+      comment_template = new ejs({ url: "../templates/comment.ejs.html" }),
+      initial_amount = 2,
+      donations = {};
 
-  function get_comments (donation, offset, limit) {
-    var donation_id = donation.getAttribute("data-id");
+  $(".donation").each(function (index, donation_node) {
+    donations[get_id(donation_node)] = {};
+    get_comments(donation_node, 0, initial_amount);
+  });
 
-    api.comments.get(donation_id, {
+  function get_comments (donation_node, offset, limit) {
+    var id = get_id(donation_node);
+
+    api.comments.get(id, {
       limit: limit,
       offset: offset
-    }).then(show_comments.bind(null, donation));
+    }).then(function (response) {
+      donations[id].comments_displayed = response.comments.concat(donations[id].comments_displayed || []);
+      donations[id].total_comments = response.meta.total;
+      update_view(donation_node, response)
+    });
   }
 
-  function show_comments (donation_node, response) {
-    var comments_node = $(".donation__comments", donation_node)[0];
+  function update_view (donation_node) {
+    render_section(donation_node);
+    render_comments(donation_node);
+    bind_show_all(donation_node);
+  }
 
-    new ejs({url: "../templates/comments.ejs.html"}).update(comments_node, {
-      comments: response.comments,
-      total_comments: response.meta.total,
-      moment: moment
+  function render_section (donation_node) {
+    var id = get_id(donation_node);
+    var rendered = section_template.render(donations[id]);
+    $(".donation__comments", donation_node).html(rendered);
+  }
+
+  function render_comments (donation_node) {
+    var container = $("ol", donation_node);
+    donations[get_id(donation_node)].comments_displayed.forEach(function (comment) {
+      container.append(comment_template.render({
+        comment: comment,
+        moment: moment
+      }));
     });
+  }
+
+  function bind_show_all (donation_node) {
+    $(".comments__show-all", donation_node).on("click", function () {
+      get_comments(donation_node, initial_amount, 0);
+    });
+  }
+
+  function get_id (donation_node) {
+    return donation_node.getAttribute("data-id");
   }
 });
 
