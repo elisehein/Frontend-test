@@ -86,5 +86,11 @@
 }
 
 @media (max-width: 300px) {
-  .sponsorship__amount del { display: none; }
+  .donation__sponsorship {
+    margin-bottom: 15px;
+  }
+
+  .sponsorship__amount del {
+    display: none;
+  }
 }
