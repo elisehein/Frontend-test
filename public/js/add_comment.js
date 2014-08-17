@@ -1,13 +1,14 @@
 define(["zepto", "moment", "api", "comments_list"],
        function ($, moment, api, comments_list) {
   return function (donation) {
-    var input = $("input", donation),
-        error = $(".error", donation);
+    var form = $("form", donation)[0],
+        input = $(form.new_comment),
+        error = $(".error", form);
 
     return { init: init }
 
     function init () {
-      $("form", donation).on("submit", function (event) {
+      $(form).submit(function (event) {
         event.preventDefault();
         submit();
       });
@@ -17,13 +18,13 @@ define(["zepto", "moment", "api", "comments_list"],
       api.comments.add(donation.getAttribute("data-id"), {
         text: input.val(),
         created: moment()
-      }).then(function (response) {
-        comments_list(donation).append(response);
+      }).then(function (new_comment) {
+        comments_list(donation).append(new_comment);
         input.val("");
         input.blur();
-        $(error).hide();
+        error.hide();
       }, function () {
-        $(error).show();
+        error.show();
       });
     }
   }

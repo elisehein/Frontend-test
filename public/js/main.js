@@ -14,10 +14,10 @@ requirejs.config({
 });
 
 requirejs(["zepto", "add_comment", "comments_list"],
-          function ($, addComment, commentsList) {
+          function ($, add_comment, comments_list) {
   $(".donation").each(function (index, donation) {
-    commentsList(donation).init();
-    addComment(donation).init();
+    comments_list(donation).init();
+    add_comment(donation).init();
   });
 })
 
