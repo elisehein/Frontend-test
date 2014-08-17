@@ -32,8 +32,9 @@
   </section>
 
   <footer class="donation__footer">
-    <time datetime="<%= donation.created %>">
-      <%= moment.duration(moment() - moment(donation.created)).humanize() %>
+    <time title="<%= moment(donation.created).format('D MMM YYYY') %>"
+          datetime="<%= donation.created %>">
+      <%= moment(donation.created).format("D MMM") %>
     </time><!--
 
  --><% if (donation.total_likes > 0) { %><!--
