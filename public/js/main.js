@@ -13,11 +13,11 @@ requirejs.config({
   }
 });
 
-requirejs(["zepto", "add_comment", "comments_list"],
-          function ($, add_comment, comments_list) {
+requirejs(["zepto", "comments/add", "comments/ui"],
+          function ($, comment_adder, comments_ui) {
   $(".donation").each(function (index, donation) {
-    comments_list(donation).init();
-    add_comment(donation).init();
+    comments_ui(donation).init();
+    comment_adder(donation).init();
   });
 })
 
