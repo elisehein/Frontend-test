@@ -1,3 +1,5 @@
+"use strict";
+
 define(["zepto", "moment", "api", "comments/ui"],
        function ($, moment, api, comments_ui) {
   return function (donation) {

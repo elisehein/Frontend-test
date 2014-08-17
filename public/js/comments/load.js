@@ -1,3 +1,5 @@
+"use strict";
+
 define(["api"], function (api) {
 
   var initial_amount = 2;

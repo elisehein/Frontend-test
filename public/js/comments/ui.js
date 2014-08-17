@@ -1,3 +1,5 @@
+"use strict";
+
 define(["zepto", "ejs", "comments/load"], function ($, ejs, comment_loader) {
   return function (donation) {
     var load_comments    = comment_loader(donation),
