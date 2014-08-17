@@ -21,8 +21,7 @@ define(["zepto", "moment", "api", "comments/ui"],
 
     function submit () {
       api.comments.add(donation.getAttribute("data-id"), {
-        text: input.val(),
-        created: moment()
+        text: input.val()
       }).then(function (new_comment) {
         ui.add(new_comment, { append: true });
         ui.expire_label();
