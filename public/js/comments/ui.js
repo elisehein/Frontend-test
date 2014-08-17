@@ -15,7 +15,7 @@ define(["zepto", "ejs", "comments/load"], function ($, ejs, comment_loader) {
       load_comments.initial().then(render);
       expand_link.on("click", function () {
         load_comments.remainder().then(function (response) {
-          purge_async_added();
+          purge_asyncly_added();
           render(response);
         });
       });
@@ -34,16 +34,14 @@ define(["zepto", "ejs", "comments/load"], function ($, ejs, comment_loader) {
       options = options || {};
       var before = options.prepend || !options.append;
 
-      if (before)
-        expand_link.before(html);
-      else
-        list.append(html);
+      if (before) expand_link.before(html);
+      else        list.append(html);
     }
 
     // It is easier to remove all of the asynchronously added comments
     // than to correctly sort and combine new comments from the API
     // with existing ones
-    function purge_async_added () {
+    function purge_asyncly_added () {
       while (expand_link.next().length)
         expand_link.next().remove();
     }
