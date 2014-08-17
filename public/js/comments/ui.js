@@ -7,13 +7,17 @@ define(["zepto", "ejs", "comments/load"], function ($, ejs, comment_loader) {
 
     return {
       init: init,
-      add: add.bind(null, undefined)
+      add: add.bind(null, undefined),
+      expire_label: expire_expand_label
     }
 
     function init () {
       load_comments.initial().then(render);
       expand_link.on("click", function () {
-        load_comments.remainder().then(render);
+        load_comments.remainder().then(function (response) {
+          purge_async_added();
+          render(response);
+        });
       });
     }
 
@@ -23,11 +27,25 @@ define(["zepto", "ejs", "comments/load"], function ($, ejs, comment_loader) {
       toggle_expand_link(response.meta.total)
     }
 
-    // Prepend by default
+    // Add before the expand link by default,
+    // otherwise add to the very end
     function add (index, comment, options) {
+      var html = get_html(comment);
       options = options || {};
-      var prepend = options.prepend || !options.append;
-      list[prepend ? "prepend" : "append"](get_html(comment));
+      var before = options.prepend || !options.append;
+
+      if (before)
+        expand_link.before(html);
+      else
+        list.append(html);
+    }
+
+    // It is easier to remove all of the asynchronously added comments
+    // than to correctly sort and combine new comments from the API
+    // with existing ones
+    function purge_async_added () {
+      while (expand_link.next().length)
+        expand_link.next().remove();
     }
 
     function show_add_form () {
@@ -35,9 +53,14 @@ define(["zepto", "ejs", "comments/load"], function ($, ejs, comment_loader) {
     }
 
     function toggle_expand_link (total_comments) {
-      var show_expand = total_comments > $("li", list).length;
+      var show_expand = total_comments > expand_link.siblings().length;
       expand_link.toggleClass("hidden", !show_expand)
         .find("span").text(total_comments);
+    }
+
+    function expire_expand_label () {
+      var current = expand_link.text();
+      expand_link.text(current.replace(/all (\d+)/g, "$1 earlier"));
     }
 
     function get_html (comment) {

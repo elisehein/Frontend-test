@@ -3,7 +3,8 @@ define(["zepto", "moment", "api", "comments/ui"],
   return function (donation) {
     var form = $("form", donation)[0],
         input = $(form.new_comment),
-        error = $(".error", form);
+        error = $(".error", form),
+        ui = comments_ui(donation);
 
     return {
       init: init
@@ -21,7 +22,8 @@ define(["zepto", "moment", "api", "comments/ui"],
         text: input.val(),
         created: moment()
       }).then(function (new_comment) {
-        comments_ui(donation).add(new_comment);
+        ui.add(new_comment, { append: true });
+        ui.expire_label();
         input.val("");
         input.blur();
         error.hide();
